@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F90528132774770B004AA6B6 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90528122774770B004AA6B6 /* PhotoCollectionViewController.swift */; };
+		F9052815277489F9004AA6B6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9052814277489F9004AA6B6 /* PhotoCollectionViewCell.swift */; };
 		F91A90BF276B5F10001307B2 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A90BE276B5F10001307B2 /* FriendsTableViewController.swift */; };
 		F91A90C2276B5F47001307B2 /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A90C1276B5F47001307B2 /* PhotoTableViewController.swift */; };
 		F91A90C5276B6057001307B2 /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A90C4276B6057001307B2 /* FriendsAPI.swift */; };
@@ -36,6 +38,8 @@
 		0DDB7A0B5200532967204E8C /* Pods_client_server.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client_server.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		218BFAEC798D272759EC7F2D /* Pods-client-server.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-server.debug.xcconfig"; path = "Target Support Files/Pods-client-server/Pods-client-server.debug.xcconfig"; sourceTree = "<group>"; };
 		98AE56649889330E70DEF961 /* Pods-client-server.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-server.release.xcconfig"; path = "Target Support Files/Pods-client-server/Pods-client-server.release.xcconfig"; sourceTree = "<group>"; };
+		F90528122774770B004AA6B6 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		F9052814277489F9004AA6B6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F91A90BE276B5F10001307B2 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		F91A90C1276B5F47001307B2 /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		F91A90C4276B6057001307B2 /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			children = (
 				F978D0DB2771F3A1000EFC44 /* Models */,
 				F91A90C1276B5F47001307B2 /* PhotoTableViewController.swift */,
+				F90528122774770B004AA6B6 /* PhotoCollectionViewController.swift */,
+				F9052814277489F9004AA6B6 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				F91A90D1276B802D001307B2 /* SearchAPI.swift in Sources */,
 				F91A90C5276B6057001307B2 /* FriendsAPI.swift in Sources */,
 				F978D0DA2771EA84000EFC44 /* Group.swift in Sources */,
+				F9052815277489F9004AA6B6 /* PhotoCollectionViewCell.swift in Sources */,
 				F978D0D12771D4B5000EFC44 /* Data+PrettyJSON.swift in Sources */,
 				F91A90CA276B7D6A001307B2 /* GroupTableViewController.swift in Sources */,
 				F97447DC276353DF00E13567 /* Session.swift in Sources */,
@@ -393,6 +400,7 @@
 				F978D0DD2771F3B3000EFC44 /* Photo.swift in Sources */,
 				F91A90C7276B7848001307B2 /* PhotoAPI.swift in Sources */,
 				F9539ADC2766395800157769 /* AuthViewController.swift in Sources */,
+				F90528132774770B004AA6B6 /* PhotoCollectionViewController.swift in Sources */,
 				F91A90D3276B8047001307B2 /* SearchTableViewController.swift in Sources */,
 				F978D0D42771DC1B000EFC44 /* Friend.swift in Sources */,
 				F97447C52763521800E13567 /* AppDelegate.swift in Sources */,

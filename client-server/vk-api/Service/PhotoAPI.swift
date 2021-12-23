@@ -26,23 +26,24 @@ final class PhotoAPI {
     
     func getPhoto(completion: @escaping ([Photo])->()) {
         
-        let path = "/photos.getAll"
+        let path = "/photos.get"
         let url = baseURL + path
         let params: [String: String] = [
-            "user_id" : userID,
+            //"user_id" : userID,
             "access_token" : accessToken,
             "v" : version,
-            "owner_id" : "1",
+            "owner_id" : userID,
             "album_id" : "profile",
-            "rev" : "1",
+            //"no_service_albums" : "1",
+            "rev" : "0",
             "photo_sizes" : "1",
-            "count" : "100"
+            "count" : "3"
         ]
         
         AF.request(url, method: .get, parameters: params).responseJSON {
             response in
             
-           print(response.result)
+           //print(response.result)
             print(response.data?.prettyJSON)
             
         }
