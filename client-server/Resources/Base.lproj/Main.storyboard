@@ -69,7 +69,7 @@
         <!--photogallery-->
         <scene sceneID="osQ-jQ-bKn">
             <objects>
-                <collectionViewController id="Cce-Jj-fsY" customClass="PhotoCollectionViewController" customModule="client_server" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Cce-Jj-fsY" customClass="Photo2CollectionViewController" customModule="client_server" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="q8a-6Y-dyK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="PEr-Bl-dKw" customClass="PhotoCollectionViewCell" customModule="client_server" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="PEr-Bl-dKw" customClass="PhotoCollectionViewCell" customModule="client_server" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iZA-lK-mZV">
@@ -94,8 +94,9 @@
                                         </imageView>
                                     </subviews>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <connections>
-                                    <outlet property="imagePhoto" destination="xgg-Dw-cJK" id="Gfg-xQ-bxn"/>
+                                    <outlet property="imagePhoto2" destination="xgg-Dw-cJK" id="3ez-oN-fnV"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -246,6 +247,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

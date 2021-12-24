@@ -13,6 +13,7 @@ import SDWebImage
 final class PhotoCollectionViewController: UICollectionViewController {
     
     
+    @IBOutlet weak var imagePhoto: UIImageView!
     
     
     
@@ -26,8 +27,9 @@ final class PhotoCollectionViewController: UICollectionViewController {
 
         
        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCell")
-
+        //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
         photoAPI.getPhoto { [weak self] photo in
             guard let self = self else { return }
             self.photo = photo
@@ -44,13 +46,16 @@ final class PhotoCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
         
-        let photo = photo[indexPath.item].sizes[indexPath.row]
+        //let photo = photo[indexPath.item].sizes[indexPath.row]
+        let photoContainer = photo[indexPath.item]
+        let size = photoContainer.sizes.first
+        let url = size!.url
         
-        let photoURL = photo.url
-        if let url = URL(string: photoURL){
+        //let photoURL = photo.url
+        if let url = URL(string: url){
 
             cell.imagePhoto.sd_setImage(with: url)
 

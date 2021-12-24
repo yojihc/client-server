@@ -10,7 +10,8 @@ import SDWebImage
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imagePhoto: UIImageView!
+    @IBOutlet weak var imagePhoto2: UIImageView!
+    
     
    
 }
