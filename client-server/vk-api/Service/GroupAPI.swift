@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 // https://api.vk.com/method/METHOD?PARAMS&access_token=TOKEN&v=V
 
@@ -22,9 +23,9 @@ final class GroupAPI {
     let baseURL = "https://api.vk.com/method"
     let userID = Session.shared.userID
     let accessToken = Session.shared.token
-    let version = "5.131"
+    let version = "5.81"
     
-    func getGroup(completion: @escaping ([Group])->()) {
+    func getGroup(completion: @escaping ([GroupDAO])->()) {
         
         let path = "/groups.get"
         let url = baseURL + path
@@ -37,23 +38,23 @@ final class GroupAPI {
             
         ]
         
-        AF.request(url, method: .get, parameters: params).responseJSON {
-            response in
-            
-            //print(response.result)
-            //print(response.data?.prettyJSON)
-            
-            guard let jsonData = response.data else { return }
+        AF.request(url,method: .get, parameters: params).responseJSON { response in
 
-            let groupConteiner = try? JSONDecoder().decode(GroupConteiner.self, from: jsonData)
-
-            guard let group = groupConteiner?.response.items else { return }
-
-            completion(group)
+            print("GROUPS RESPONSE.DATA: \(response.data?.prettyJSON)")
+                  guard let jsonData = response.data else { return }
+                           
+            do {
+                let itemsData = try JSON(jsonData)["response"]["items"].rawData()
+                let groups = try JSONDecoder().decode([GroupDAO].self, from: itemsData)
+                completion(groups)
+                
+            } catch {
+                    print(error)
         }
+    }
         
         
-        //completion([Group()])
+      
         
     }
 }
