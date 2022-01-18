@@ -11,7 +11,7 @@ import SDWebImage
 final class GroupTableViewController: UITableViewController {
     
     private var groupAPI = GroupAPI()
-    private var group: [Group] = []
+    private var group: [GroupDAO] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,10 @@ final class GroupTableViewController: UITableViewController {
 
    
 
-//   override func numberOfSections(in tableView: UITableView) -> Int {
-//
-//        return 0
-//    }
+   override func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -41,7 +41,7 @@ final class GroupTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let group = group[indexPath.row]
+        let group: GroupDAO = group[indexPath.row]
         cell.textLabel?.text = "\(group.name)"
         
         if let url = URL(string: group.photo100) {

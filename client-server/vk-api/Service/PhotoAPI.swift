@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 // https://api.vk.com/method/METHOD?PARAMS&access_token=TOKEN&v=V
 
@@ -24,7 +25,7 @@ final class PhotoAPI {
     let accessToken = Session.shared.token
     let version = "5.131"
     
-    func getPhoto(completion: @escaping ([Photo])->()) {
+    func getPhoto(completion: @escaping ([PhotoDAO])->()) {
         
         let path = "/photos.get"
         let url = baseURL + path
@@ -40,16 +41,22 @@ final class PhotoAPI {
             "count" : "3"
         ]
         
-        AF.request(url, method: .get, parameters: params).responseJSON {
-            response in
-            
-           //print(response.result)
-            print(response.data?.prettyJSON)
-            
-        }
-        
-        //completion([Photo()])
-        
+        AF.request(url, method: .get, parameters: params).responseJSON { response in
+
+            print("RESPONSE.DATA: \(response.data?.prettyJSON)")
+
+            guard let jsonData = response.data else { return }
+
+        do {
+
+            let itemsData = try JSON(jsonData)["response"]["items"].rawData()
+            let photos = try JSONDecoder().decode([PhotoDAO].self, from: itemsData)
+
+            completion(photos)
+        } catch {
+            print(error)
     }
+}
+}
 }
 
