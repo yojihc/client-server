@@ -45,3 +45,43 @@ class FriendDAO: Object, Codable {
         case firstName = "first_name"
     }
 }
+
+
+final class FriendDB {
+    init(){
+    
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1)
+    }
+    
+    func save (_ items: [FriendDAO]) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(items)
+        }
+        
+        guard let url = realm.configuration.fileURL else { return }
+        print(url)
+    }
+    
+    func fetch() -> Results<FriendDAO> {
+        let realm = try! Realm()
+        let friends: Results<FriendDAO> = realm.objects(FriendDAO.self)
+        return friends
+        
+    }
+    
+    func deleteAll() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+    
+    func delete(_ item: FriendDAO) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.delete(item)
+        }
+    }
+}

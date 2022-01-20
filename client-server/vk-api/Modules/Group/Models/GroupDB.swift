@@ -60,3 +60,43 @@ class GroupDAO: Object, Codable {
         case isClosed = "is_closed"
     }
 }
+
+
+final class GroupDB {
+    init(){
+    
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1)
+    }
+    
+    func save (_ items: [GroupDAO]) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(items)
+        }
+        
+        guard let url = realm.configuration.fileURL else { return }
+        print(url)
+    }
+    
+    func fetch() -> Results<GroupDAO> {
+        let realm = try! Realm()
+        let friends: Results<GroupDAO> = realm.objects(GroupDAO.self)
+        return friends
+        
+    }
+    
+    func deleteAll() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+    
+    func delete(_ item: GroupDAO) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.delete(item)
+        }
+    }
+}
