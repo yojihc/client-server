@@ -63,3 +63,43 @@ class SizeDAO: Object, Codable {
     @objc dynamic var url: String = ""
     @objc dynamic var type: String = ""
 }
+
+
+final class PhotosDB {
+    init(){
+    
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1)
+    }
+    
+    func save (_ items: [PhotoDAO]) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(items)
+        }
+        
+        guard let url = realm.configuration.fileURL else { return }
+        print(url)
+    }
+    
+    func fetch() -> Results<PhotoDAO> {
+        let realm = try! Realm()
+        let friends: Results<PhotoDAO> = realm.objects(PhotoDAO.self)
+        return friends
+        
+    }
+    
+    func deleteAll() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+    
+    func delete(_ item: PhotoDAO) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.delete(item)
+        }
+    }
+}
